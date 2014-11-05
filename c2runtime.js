@@ -25251,6 +25251,42 @@ false,false,783455275266108,false
 					]
 					]
 				]
+,				[
+					-1,
+					cr.system_object.prototype.acts.Wait,
+					null,
+					3649879586637074,
+					false
+					,[
+					[
+						0,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					4444309672239989,
+					false
+					,[
+					[
+						11,
+						"godown"
+					]
+,					[
+						7,
+						[
+							0,
+							0
+						]
+					]
+					]
+				]
 				]
 			]
 ,			[
@@ -25523,39 +25559,8 @@ false,false,783455275266108,false
 						null,
 						3341931430625604,
 						[
-						[
-							-1,
-							cr.system_object.prototype.cnds.Else,
-							null,
-							0,
-							false,
-							false,
-							false,
-							6855105585191519,
-							false
-						]
 						],
 						[
-						[
-							-1,
-							cr.system_object.prototype.acts.SetVar,
-							null,
-							4444309672239989,
-							false
-							,[
-							[
-								11,
-								"godown"
-							]
-,							[
-								7,
-								[
-									0,
-									0
-								]
-							]
-							]
-						]
 						]
 					]
 					]
