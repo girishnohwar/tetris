@@ -19130,7 +19130,7 @@ cr.getProjectModel = function() { return [
 				[
 					"PLAY",
 					0,
-					"bold 72pt Impact",
+					"bold 48pt Segoe UI",
 					"rgb(51,255,204)",
 					1,
 					1,
