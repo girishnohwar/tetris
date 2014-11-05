@@ -18113,6 +18113,156 @@ cr.plugins_.WebStorage = function(runtime)
 }());
 ;
 ;
+cr.behaviors.Fade = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var behaviorProto = cr.behaviors.Fade.prototype;
+	behaviorProto.Type = function(behavior, objtype)
+	{
+		this.behavior = behavior;
+		this.objtype = objtype;
+		this.runtime = behavior.runtime;
+	};
+	var behtypeProto = behaviorProto.Type.prototype;
+	behtypeProto.onCreate = function()
+	{
+	};
+	behaviorProto.Instance = function(type, inst)
+	{
+		this.type = type;
+		this.behavior = type.behavior;
+		this.inst = inst;				// associated object instance to modify
+		this.runtime = type.runtime;
+	};
+	var behinstProto = behaviorProto.Instance.prototype;
+	behinstProto.onCreate = function()
+	{
+		var active_at_start = this.properties[0] === 1;
+		this.fadeInTime = this.properties[1];
+		this.waitTime = this.properties[2];
+		this.fadeOutTime = this.properties[3];
+		this.destroy = this.properties[4];			// 0 = no, 1 = after fade out
+		this.stage = active_at_start ? 0 : 3;		// 0 = fade in, 1 = wait, 2 = fade out, 3 = done
+		if (this.recycled)
+			this.stageTime.reset();
+		else
+			this.stageTime = new cr.KahanAdder();
+		this.maxOpacity = (this.inst.opacity ? this.inst.opacity : 1.0);
+		if (active_at_start)
+		{
+			if (this.fadeInTime === 0)
+			{
+				this.stage = 1;
+				if (this.waitTime === 0)
+					this.stage = 2;
+			}
+			else
+			{
+				this.inst.opacity = 0;
+				this.runtime.redraw = true;
+			}
+		}
+	};
+	behinstProto.saveToJSON = function ()
+	{
+		return {
+			"fit": this.fadeInTime,
+			"wt": this.waitTime,
+			"fot": this.fadeOutTime,
+			"s": this.stage,
+			"st": this.stageTime.sum,
+			"mo": this.maxOpacity,
+		};
+	};
+	behinstProto.loadFromJSON = function (o)
+	{
+		this.fadeInTime = o["fit"];
+		this.waitTime = o["wt"];
+		this.fadeOutTime = o["fot"];
+		this.stage = o["s"];
+		this.stageTime.reset();
+		this.stageTime.sum = o["st"];
+		this.maxOpacity = o["mo"];
+	};
+	behinstProto.tick = function ()
+	{
+		this.stageTime.add(this.runtime.getDt(this.inst));
+		if (this.stage === 0)
+		{
+			this.inst.opacity = (this.stageTime.sum / this.fadeInTime) * this.maxOpacity;
+			this.runtime.redraw = true;
+			if (this.inst.opacity >= this.maxOpacity)
+			{
+				this.inst.opacity = this.maxOpacity;
+				this.stage = 1;	// wait stage
+				this.stageTime.reset();
+			}
+		}
+		if (this.stage === 1)
+		{
+			if (this.stageTime.sum >= this.waitTime)
+			{
+				this.stage = 2;	// fade out stage
+				this.stageTime.reset();
+			}
+		}
+		if (this.stage === 2)
+		{
+			if (this.fadeOutTime !== 0)
+			{
+				this.inst.opacity = this.maxOpacity - ((this.stageTime.sum / this.fadeOutTime) * this.maxOpacity);
+				this.runtime.redraw = true;
+				if (this.inst.opacity < 0)
+				{
+					this.inst.opacity = 0;
+					this.stage = 3;	// done
+					this.stageTime.reset();
+					this.runtime.trigger(cr.behaviors.Fade.prototype.cnds.OnFadeOutEnd, this.inst);
+					if (this.destroy === 1)
+						this.runtime.DestroyInstance(this.inst);
+				}
+			}
+		}
+	};
+	behinstProto.doStart = function ()
+	{
+		this.stage = 0;
+		this.stageTime.reset();
+		if (this.fadeInTime === 0)
+		{
+			this.stage = 1;
+			if (this.waitTime === 0)
+				this.stage = 2;
+		}
+		else
+		{
+			this.inst.opacity = 0;
+			this.runtime.redraw = true;
+		}
+	};
+	function Cnds() {};
+	Cnds.prototype.OnFadeOutEnd = function ()
+	{
+		return true;
+	};
+	behaviorProto.cnds = new Cnds();
+	function Acts() {};
+	Acts.prototype.StartFade = function ()
+	{
+		if (this.stage === 3)
+			this.doStart();
+	};
+	Acts.prototype.RestartFade = function ()
+	{
+		this.doStart();
+	};
+	behaviorProto.acts = new Acts();
+}());
+;
+;
 cr.behaviors.shadowcaster = function(runtime)
 {
 	this.runtime = runtime;
@@ -18896,6 +19046,45 @@ cr.getProjectModel = function() { return [
 		[],
 		null
 	]
+,	[
+		"t26",
+		cr.plugins_.Text,
+		false,
+		[],
+		1,
+		0,
+		null,
+		null,
+		[
+		[
+			"Fade",
+			cr.behaviors.Fade,
+			3767333920616617
+		]
+		],
+		false,
+		false,
+		1790069994355438,
+		[],
+		null
+	]
+,	[
+		"t27",
+		cr.plugins_.Particles,
+		false,
+		[],
+		0,
+		0,
+		["images/particles2.png", 878, 0],
+		null,
+		[
+		],
+		false,
+		false,
+		9137882532878537,
+		[],
+		null
+	]
 	],
 	[
 	],
@@ -19282,7 +19471,7 @@ cr.getProjectModel = function() { return [
 				]
 			]
 ,			[
-				[219.5045776367188, 227.7728576660156, 0, 128, 128, 0, 0, 1, 0, 0.5, 0, 0, []],
+				[250, 250, 0, 10.95880126953125, 11.91856384277344, 0, 0, 1, 0, 0.5, 0, 0, []],
 				25,
 				27,
 				[
@@ -19344,6 +19533,64 @@ cr.getProjectModel = function() { return [
 					1
 				]
 			]
+		],
+		[]
+	]
+,	[
+		"Layout 2",
+		1708,
+		960,
+		false,
+		"Event sheet 2",
+		255193753035494,
+		[
+		[
+			"Layer 0",
+			0,
+			8459838217093603,
+			true,
+			[236, 239, 241],
+			false,
+			1,
+			1,
+			1,
+			false,
+			1,
+			0,
+			0,
+			[
+			[
+				[146, 226, 0, 212, 151, 0, 0, 1, 0, 0, 0, 0, []],
+				26,
+				29,
+				[
+				],
+				[
+				[
+					1,
+					2,
+					0,
+					0,
+					0
+				]
+				],
+				[
+					"PLAY",
+					0,
+					"bold 72pt Impact",
+					"rgb(51,255,204)",
+					1,
+					1,
+					0,
+					0,
+					0
+				]
+			]
+			],
+			[			]
+		]
+		],
+		[
 		],
 		[]
 	]
@@ -26071,6 +26318,90 @@ false,false,783455275266108,false
 		]
 		]
 	]
+,	[
+		"Event sheet 2",
+		[
+		[
+			0,
+			null,
+			false,
+			null,
+			9949056234247217,
+			[
+			[
+				-1,
+				cr.system_object.prototype.cnds.OnLayoutStart,
+				null,
+				1,
+				false,
+				false,
+				false,
+				4682588195177636,
+				false
+			]
+			],
+			[
+			[
+				26,
+				cr.plugins_.Text.prototype.acts.SetVisible,
+				null,
+				8037664532246295,
+				false
+				,[
+				[
+					3,
+					1
+				]
+				]
+			]
+			]
+		]
+,		[
+			0,
+			null,
+			false,
+			null,
+			7950236089249701,
+			[
+			[
+				15,
+				cr.plugins_.Touch.prototype.cnds.OnTapGestureObject,
+				null,
+				1,
+				false,
+				false,
+				false,
+				2921960758018893,
+				false
+				,[
+				[
+					4,
+					26
+				]
+				]
+			]
+			],
+			[
+			[
+				-1,
+				cr.system_object.prototype.acts.GoToLayoutByName,
+				null,
+				475040666189047,
+				false
+				,[
+				[
+					1,
+					[
+						2,
+						"Layout 1"
+					]
+				]
+				]
+			]
+			]
+		]
+		]
+	]
 	],
 	[
 	],
@@ -26087,7 +26418,7 @@ false,false,783455275266108,false
 	false,
 	0,
 	1,
-	28,
+	31,
 	false,
 	true,
 	1,
