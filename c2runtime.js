@@ -25232,14 +25232,23 @@ false,false,783455275266108,false
 			[
 			[
 				-1,
-				cr.system_object.prototype.cnds.EveryTick,
+				cr.system_object.prototype.cnds.Every,
 				null,
 				0,
 				false,
 				false,
 				false,
-				9492214296894895,
+				6060289258079386,
 				false
+				,[
+				[
+					0,
+					[
+						1,
+						0.2
+					]
+				]
+				]
 			]
 			],
 			[
@@ -25351,96 +25360,59 @@ false,false,783455275266108,false
 					]
 					],
 					[
-					]
-					,[
 					[
 						0,
+						cr.plugins_.Sprite.prototype.acts.SetPos,
 						null,
-						false,
-						null,
-						4048084424446306,
+						5539318021102201,
+						false
+						,[
 						[
-						[
-							-1,
-							cr.system_object.prototype.cnds.Compare,
-							null,
 							0,
-							false,
-							false,
-							false,
-							209105127672324,
-							false
-							,[
 							[
-								7,
+								4,
 								[
-									20,
-									0,
-									cr.plugins_.Sprite.prototype.exps.Y,
-									false,
-									null
-								]
-							]
-,							[
-								8,
-								2
-							]
-,							[
-								7,
-								[
-									5,
+									6,
 									[
-										5,
-										[
-											6,
-											[
-												20,
-												13,
-												cr.plugins_.Arr.prototype.exps.CurX,
-												false,
-												null
-											]
-											,[
-												0,
-												50
-											]
-										]
-										,[
-											0,
-											75
-										]
+										20,
+										13,
+										cr.plugins_.Arr.prototype.exps.CurY,
+										false,
+										null
 									]
 									,[
 										0,
-										1
+										50
 									]
 								]
-							]
+								,[
+									0,
+									25
+								]
 							]
 						]
-						],
-						[
-						[
+,						[
 							0,
-							cr.plugins_.Sprite.prototype.acts.MoveAtAngle,
-							null,
-							5105467065710363,
-							false
-							,[
 							[
-								0,
+								5,
 								[
-									0,
-									90
+									6,
+									[
+										20,
+										13,
+										cr.plugins_.Arr.prototype.exps.CurX,
+										false,
+										null
+									]
+									,[
+										0,
+										50
+									]
 								]
-							]
-,							[
-								0,
-								[
+								,[
 									0,
-									5
+									75
 								]
-							]
 							]
 						]
 						]
