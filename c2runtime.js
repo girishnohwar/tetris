@@ -19417,6 +19417,13 @@ false,false,6683845437567178,false
 		]
 ,		[
 			1,
+			"godown",
+			0,
+			0,
+false,false,6563394073546097,false
+		]
+,		[
+			1,
 			"swipeStartY",
 			0,
 			0,
@@ -25208,6 +25215,42 @@ false,false,783455275266108,false
 					]
 					]
 				]
+,				[
+					-1,
+					cr.system_object.prototype.acts.Wait,
+					null,
+					4312704466783855,
+					false
+					,[
+					[
+						0,
+						[
+							1,
+							0.01
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					3600120101411429,
+					false
+					,[
+					[
+						11,
+						"godown"
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
 				]
 			]
 ,			[
@@ -25232,20 +25275,39 @@ false,false,783455275266108,false
 			[
 			[
 				-1,
-				cr.system_object.prototype.cnds.Every,
+				cr.system_object.prototype.cnds.EveryTick,
 				null,
 				0,
 				false,
 				false,
 				false,
-				6060289258079386,
+				9492214296894895,
+				false
+			]
+,			[
+				-1,
+				cr.system_object.prototype.cnds.CompareVar,
+				null,
+				0,
+				false,
+				false,
+				false,
+				9993760468893017,
 				false
 				,[
 				[
-					0,
+					11,
+					"godown"
+				]
+,				[
+					8,
+					0
+				]
+,				[
+					7,
 					[
-						1,
-						0.2
+						0,
+						1
 					]
 				]
 				]
@@ -25360,65 +25422,155 @@ false,false,783455275266108,false
 					]
 					],
 					[
+					]
+					,[
 					[
 						0,
-						cr.plugins_.Sprite.prototype.acts.SetPos,
 						null,
-						5539318021102201,
-						false
-						,[
+						false,
+						null,
+						4048084424446306,
 						[
+						[
+							-1,
+							cr.system_object.prototype.cnds.Compare,
+							null,
 							0,
+							false,
+							false,
+							false,
+							209105127672324,
+							false
+							,[
 							[
-								4,
+								7,
 								[
-									6,
-									[
-										20,
-										13,
-										cr.plugins_.Arr.prototype.exps.CurY,
-										false,
-										null
-									]
-									,[
-										0,
-										50
-									]
-								]
-								,[
+									20,
 									0,
-									25
+									cr.plugins_.Sprite.prototype.exps.Y,
+									false,
+									null
 								]
 							]
-						]
-,						[
-							0,
-							[
-								5,
+,							[
+								8,
+								2
+							]
+,							[
+								7,
 								[
-									6,
+									5,
 									[
-										20,
-										13,
-										cr.plugins_.Arr.prototype.exps.CurX,
-										false,
-										null
+										5,
+										[
+											6,
+											[
+												20,
+												13,
+												cr.plugins_.Arr.prototype.exps.CurX,
+												false,
+												null
+											]
+											,[
+												0,
+												50
+											]
+										]
+										,[
+											0,
+											75
+										]
 									]
 									,[
 										0,
-										50
+										1
 									]
 								]
-								,[
+							]
+							]
+						]
+						],
+						[
+						[
+							0,
+							cr.plugins_.Sprite.prototype.acts.MoveAtAngle,
+							null,
+							5105467065710363,
+							false
+							,[
+							[
+								0,
+								[
 									0,
-									75
+									90
 								]
+							]
+,							[
+								0,
+								[
+									0,
+									5
+								]
+							]
+							]
+						]
+						]
+					]
+,					[
+						0,
+						null,
+						false,
+						null,
+						3341931430625604,
+						[
+						[
+							-1,
+							cr.system_object.prototype.cnds.Else,
+							null,
+							0,
+							false,
+							false,
+							false,
+							6855105585191519,
+							false
+						]
+						],
+						[
+						[
+							-1,
+							cr.system_object.prototype.acts.SetVar,
+							null,
+							4444309672239989,
+							false
+							,[
+							[
+								11,
+								"godown"
+							]
+,							[
+								7,
+								[
+									0,
+									0
+								]
+							]
 							]
 						]
 						]
 					]
 					]
 				]
+				]
+			]
+,			[
+				0,
+				null,
+				false,
+				null,
+				8049615920881642,
+				[
+				],
+				[
 				]
 			]
 			]
