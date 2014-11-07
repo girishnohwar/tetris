@@ -26653,36 +26653,30 @@ false,false,1433162776674296,false
 						,[
 							4,
 							[
-								19,
-								cr.system_object.prototype.exps.round
-								,[
-[
-									7,
+								7,
+								[
+									4,
 									[
-										4,
-										[
-											20,
-											1,
-											cr.plugins_.Sprite.prototype.exps.ImagePointY,
-											false,
-											null
-											,[
-[
-												0,
-												2
-											]
-											]
-										]
+										20,
+										1,
+										cr.plugins_.Sprite.prototype.exps.ImagePointY,
+										false,
+										null
 										,[
+[
 											0,
-											25
+											2
+										]
 										]
 									]
 									,[
 										0,
-										50
+										25
 									]
 								]
+								,[
+									0,
+									50
 								]
 							]
 							,[
@@ -28013,17 +28007,6 @@ false,false,1433162776674296,false
 				]
 				]
 			]
-			]
-		]
-,		[
-			0,
-			null,
-			false,
-			null,
-			1501065048093448,
-			[
-			],
-			[
 			]
 		]
 		]
