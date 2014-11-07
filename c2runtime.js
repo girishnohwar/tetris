@@ -8281,7 +8281,7 @@ window["cr_setSuspended"] = function(s)
 			this.is_else_block = (this.conditions[0].type == null && this.conditions[0].func == cr.system_object.prototype.cnds.Else);
 		}
 	};
-	window["_c2hh_"] = "";
+	window["_c2hh_"] = "FE3B421D4158145F6DE10520A220B815AF58D6BD";
 	EventBlock.prototype.postInit = function (hasElse/*, prevBlock_*/)
 	{
 		var i, len;
@@ -18385,18 +18385,6 @@ cr.getProjectModel = function() { return [
 		false
 	]
 ,	[
-		cr.plugins_.Mouse,
-		true,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false
-	]
-,	[
 		cr.plugins_.Particles,
 		false,
 		true,
@@ -18407,6 +18395,18 @@ cr.getProjectModel = function() { return [
 		true,
 		true,
 		true
+	]
+,	[
+		cr.plugins_.Mouse,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false
 	]
 ,	[
 		cr.plugins_.Sprite,
@@ -18433,7 +18433,7 @@ cr.getProjectModel = function() { return [
 		false
 	]
 ,	[
-		cr.plugins_.Touch,
+		cr.plugins_.WebStorage,
 		true,
 		false,
 		false,
@@ -18445,7 +18445,7 @@ cr.getProjectModel = function() { return [
 		false
 	]
 ,	[
-		cr.plugins_.WebStorage,
+		cr.plugins_.Touch,
 		true,
 		false,
 		false,
@@ -18507,12 +18507,12 @@ cr.getProjectModel = function() { return [
 			1445601462304262,
 			[
 				["images/s-sheet0.png", 11060, 1, 1, 300, 200, 1, 0.3333333432674408, 0.5,[["Imagepoint 1", 0.1666666716337204, 0.25],["Imagepoint 2", 0.5, 0.25],["Imagepoint 3", 0.5, 0.75],["Imagepoint 4", 0.8333333134651184, 0.75]],[-0.3300000131130219,-0.4950000047683716,0.3299996554851532,-0.4950000047683716,0.3299996554851532,0.004999995231628418,0.6633336544036865,0.004999995231628418,0.6633336544036865,0.4950000047683716,0.00333365797996521,0.4950000047683716,0.00333365797996521,-0.004999995231628418,-0.3300000131130219,-0.004999995231628418],0],
-				["images/s-sheet0.png", 11060, 1, 405, 400, 100, 1, 0.5, 1,[["Imagepoint 1", 0.125, 0.5],["Imagepoint 2", 0.375, 0.5],["Imagepoint 3", 0.625, 0.5],["Imagepoint 4", 0.875, 0.5]],[-0.4975000023841858,-0.9900000095367432,0.497499942779541,-0.9900000095367432,0.497499942779541,-0.009999990463256836,-0.4975000023841858,-0.009999990463256836],0],
+				["images/s-sheet0.png", 11060, 1, 405, 400, 100, 1, 0.5, 0,[["Imagepoint 1", 0.125, 0.5],["Imagepoint 2", 0.375, 0.5],["Imagepoint 3", 0.625, 0.5],["Imagepoint 4", 0.875, 0.5]],[-0.4975000023841858,0.009999999776482582,0.497499942779541,0.009999999776482582,0.497499942779541,0.9900000095367432,-0.4975000023841858,0.9900000095367432],0],
 				["images/s-sheet1.png", 7810, 203, 203, 200, 200, 1, 0.5, 0.5,[["Imagepoint 1", 0.25, 0.25],["Imagepoint 2", 0.75, 0.25],["Imagepoint 3", 0.25, 0.75],["Imagepoint 4", 0.75, 0.75]],[-0.4950000047683716,-0.4950000047683716,0.4950000047683716,-0.4950000047683716,0.4950000047683716,0.4950000047683716,-0.4950000047683716,0.4950000047683716],0],
-				["images/s-sheet0.png", 11060, 1, 203, 300, 200, 1, 0.3333333432674408, 0.5,[["Imagepoint 1", 0.5, 0.25],["Imagepoint 2", 0.8333333134651184, 0.25],["Imagepoint 3", 0.5, 0.75],["Imagepoint 4", 0.1666666716337204, 0.75]],[0.00333365797996521,0.004999995231628418,0.00333365797996521,-0.4950000047683716,0.6633336544036865,-0.4950000047683716,0.6633336544036865,-0.004999995231628418,0.3299996554851532,-0.004999995231628418,0.3299996554851532,0.4950000047683716,-0.3300000131130219,0.4950000047683716,-0.3300000131130219,0.004999995231628418],0],
+				["images/s-sheet0.png", 11060, 1, 203, 300, 200, 1, 0.3333333432674408, 0.5,[["Imagepoint 1", 0.5, 0.25],["Imagepoint 2", 0.8333333134651184, 0.25],["Imagepoint 3", 0.1666666716337204, 0.75],["Imagepoint 4", 0.5, 0.75]],[0.00333365797996521,0.004999995231628418,0.00333365797996521,-0.4950000047683716,0.6633336544036865,-0.4950000047683716,0.6633336544036865,-0.004999995231628418,0.3299996554851532,-0.004999995231628418,0.3299996554851532,0.4950000047683716,-0.3300000131130219,0.4950000047683716,-0.3300000131130219,0.004999995231628418],0],
 				["images/s-sheet0.png", 11060, 303, 1, 200, 300, 1, 0.5, 0.6666666865348816,[["Imagepoint 1", 0.75, 0.1666666716337204],["Imagepoint 2", 0.75, 0.5],["Imagepoint 3", 0.75, 0.8333333134651184],["Imagepoint 4", 0.25, 0.8333333134651184]],[0.004999995231628418,-0.6633333563804627,0.4950000047683716,-0.6633333563804627,0.4950000047683716,0.3300003409385681,-0.4950000047683716,0.3300003409385681,-0.4950000047683716,0.003333330154418945,0.004999995231628418,0.003333330154418945],0],
 				["images/s-sheet1.png", 7810, 1, 1, 200, 300, 1, 0.5, 0.6666666865348816,[["Imagepoint 1", 0.25, 0.1666666716337204],["Imagepoint 2", 0.25, 0.5],["Imagepoint 3", 0.25, 0.8333333134651184],["Imagepoint 4", 0.75, 0.8333333134651184]],[-0.4950000047683716,-0.6633333563804627,-0.004999995231628418,-0.6633333563804627,-0.004999995231628418,0.003333330154418945,0.4950000047683716,0.003333330154418945,0.4950000047683716,0.3300003409385681,-0.4950000047683716,0.3300003409385681],0],
-				["images/s-sheet1.png", 7810, 203, 1, 300, 200, 1, 0.6666666865348816, 0.5,[["Imagepoint 1", 0.5, 0.25],["Imagepoint 2", 0.1666666716337204, 0.75],["Imagepoint 3", 0.5, 0.75],["Imagepoint 4", 0.8333333134651184, 0.75]],[-0.3299996852874756,0.004999995231628418,-0.3299996852874756,-0.4950000047683716,-0.003333687782287598,-0.4950000047683716,-0.003333687782287598,0.004999995231628418,0.3300003409385681,0.004999995231628418,0.3300003409385681,0.4950000047683716,-0.6633333563804627,0.4950000047683716,-0.6633333563804627,0.004999995231628418],0]
+				["images/s-sheet1.png", 7810, 203, 1, 300, 200, 1, 0.3333333432674408, 0.5,[["Imagepoint 1", 0.5, 0.25],["Imagepoint 2", 0.1666666716337204, 0.75],["Imagepoint 3", 0.5, 0.75],["Imagepoint 4", 0.8333333134651184, 0.75]],[0.00333365797996521,0.004999995231628418,0.00333365797996521,-0.4950000047683716,0.3299996554851532,-0.4950000047683716,0.3299996554851532,0.004999995231628418,0.6633336544036865,0.004999995231628418,0.6633336544036865,0.4950000047683716,-0.3300000131130219,0.4950000047683716,-0.3300000131130219,0.004999995231628418],0]
 			]
 			]
 		],
@@ -19085,6 +19085,42 @@ cr.getProjectModel = function() { return [
 		[],
 		null
 	]
+,	[
+		"t28",
+		cr.plugins_.Sprite,
+		false,
+		[],
+		0,
+		0,
+		null,
+		[
+			[
+			"Default",
+			0,
+			false,
+			0,
+			0,
+			false,
+			4433925728484198,
+			[
+				["images/sprite2-sheet0.png", 10673, 1, 1, 300, 200, 1, 0.3333333432674408, 0.5,[],[-0.3333333432674408,-0.5,0.1666666567325592,-0.5,0.3333336412906647,0,0.6666666269302368,0,0.6666666269302368,0.5,0.1666666567325592,0.5,-3.576278686523438e-007,0,-3.576278686523438e-007,0],0],
+				["images/sprite2-sheet0.png", 10673, 1, 405, 400, 100, 1, 0.5, 0,[],[],0],
+				["images/sprite2-sheet1.png", 7482, 203, 203, 200, 200, 1, 0.5, 0.5,[],[],0],
+				["images/sprite2-sheet0.png", 10673, 1, 203, 300, 200, 1, 0.3333333432674408, 0.5,[],[-0.3333333432674408,-0.5,0.1666666567325592,-0.5,0.3333336412906647,0,0.6666666269302368,0,0.6666666269302368,0.5,0.1666666567325592,0.5,-3.576278686523438e-007,0,-3.576278686523438e-007,0],0],
+				["images/sprite2-sheet0.png", 10673, 303, 1, 200, 300, 1, 0.5, 0.6666666865348816,[],[0,-0.6666666865348816,0.5,-0.6666666865348816,0.5,0.3333333134651184,-0.5,0.3333333134651184,0,-0.1666666865348816],0],
+				["images/sprite2-sheet1.png", 7482, 1, 1, 200, 300, 1, 0.5, 0.6666666865348816,[],[-0.5,-0.6666666865348816,0,2.980232238769531e-007,0,-0.3333337008953095,0,-0.1666666865348816,0.5,0.3333333134651184,-0.5,0.3333333134651184],0],
+				["images/sprite2-sheet1.png", 7482, 203, 1, 300, 200, 1, 0.3333333432674408, 0.5,[],[-3.576278686523438e-007,0,0.1666666567325592,-0.5,0.3333336412906647,0,0.6666666269302368,0,0.6666666269302368,0.5,-0.3333333432674408,0.5,-0.3333333432674408,0],0]
+			]
+			]
+		],
+		[
+		],
+		false,
+		false,
+		8121530546912163,
+		[],
+		null
+	]
 	],
 	[
 	],
@@ -19174,21 +19210,6 @@ cr.getProjectModel = function() { return [
 				[962, 113, 0, 50, 50, 0, 0, 1, 0.5, 0.5, 0, 0, []],
 				0,
 				0,
-				[
-				],
-				[
-				],
-				[
-					0,
-					"Default",
-					0,
-					1
-				]
-			]
-,			[
-				[250, 0, 0, 150, 100, 0, 0, 1, 0.3333333432674408, 0.5, 0, 0, []],
-				1,
-				1,
 				[
 				],
 				[
@@ -19370,6 +19391,36 @@ cr.getProjectModel = function() { return [
 					1
 				]
 			]
+,			[
+				[250, 0, 0, 150, 100, 0, 0, 1, 0.3333333432674408, 0.5, 0, 0, []],
+				28,
+				28,
+				[
+				],
+				[
+				],
+				[
+					0,
+					"Default",
+					0,
+					1
+				]
+			]
+,			[
+				[250, 0, 0, 150, 100, 0, 0, 1, 0.3333333432674408, 0.5, 0, 0, []],
+				1,
+				1,
+				[
+				],
+				[
+				],
+				[
+					0,
+					"Default",
+					0,
+					1
+				]
+			]
 			],
 			[			]
 		]
@@ -19389,6 +19440,26 @@ cr.getProjectModel = function() { return [
 			0,
 			[
 			[
+				[104.3716430664063, 514.5082397460938, 0, 301.6893005371094, 48.9859619140625, 0, 0, 1, 0, 0, 0, 0, []],
+				20,
+				20,
+				[
+				],
+				[
+				],
+				[
+					"fps: 00",
+					0,
+					"22pt Impact",
+					"rgb(236,239,241)",
+					0,
+					0,
+					0,
+					0,
+					0
+				]
+			]
+,			[
 				[37, 136, 0, 431.9666748046875, 179.9861145019531, 0, 0, 1, 0, 0, 0, 0, []],
 				10,
 				22,
@@ -19403,26 +19474,6 @@ cr.getProjectModel = function() { return [
 					"rgb(244,81,30)",
 					1,
 					1,
-					0,
-					0,
-					0
-				]
-			]
-,			[
-				[218.5349273681641, 474.2148742675781, 0, 111.7366180419922, 48.9859619140625, 0, 0, 1, 0, 0, 0, 0, []],
-				20,
-				20,
-				[
-				],
-				[
-				],
-				[
-					"fps: 00",
-					0,
-					"22pt Impact",
-					"rgb(236,239,241)",
-					0,
-					0,
 					0,
 					0,
 					0
@@ -19671,10 +19722,80 @@ false,false,6563394073546097,false
 		]
 ,		[
 			1,
+			"currentshape",
+			0,
+			0,
+false,false,3569425558449036,false
+		]
+,		[
+			1,
 			"swipeStartY",
 			0,
 			0,
 false,false,783455275266108,false
+		]
+,		[
+			1,
+			"gap1",
+			0,
+			0,
+false,false,6915528619407814,false
+		]
+,		[
+			1,
+			"gap2",
+			0,
+			0,
+false,false,7390914859437316,false
+		]
+,		[
+			1,
+			"gap3",
+			0,
+			0,
+false,false,6209153262798629,false
+		]
+,		[
+			1,
+			"nearestpoint",
+			0,
+			0,
+false,false,6592568059744289,false
+		]
+,		[
+			1,
+			"gap4",
+			0,
+			0,
+false,false,5850173647821539,false
+		]
+,		[
+			1,
+			"bp1",
+			0,
+			0,
+false,false,184462119685142,false
+		]
+,		[
+			1,
+			"bp2",
+			0,
+			0,
+false,false,6969817561811942,false
+		]
+,		[
+			1,
+			"bp3",
+			0,
+			0,
+false,false,9657691416767216,false
+		]
+,		[
+			1,
+			"bp4",
+			0,
+			0,
+false,false,1433162776674296,false
 		]
 ,		[
 			0,
@@ -19717,14 +19838,18 @@ false,false,783455275266108,false
 				]
 			]
 ,			[
-				1,
-				cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
+				-1,
+				cr.system_object.prototype.acts.SetVar,
 				null,
-				7694144791871203,
+				9893713124789268,
 				false
 				,[
 				[
-					0,
+					11,
+					"currentshape"
+				]
+,				[
+					7,
 					[
 						19,
 						cr.system_object.prototype.exps.round
@@ -19744,6 +19869,38 @@ false,false,783455275266108,false
 							]
 						]
 						]
+					]
+				]
+				]
+			]
+,			[
+				1,
+				cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
+				null,
+				7694144791871203,
+				false
+				,[
+				[
+					0,
+					[
+						23,
+						"currentshape"
+					]
+				]
+				]
+			]
+,			[
+				28,
+				cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
+				null,
+				7755279388633725,
+				false
+				,[
+				[
+					0,
+					[
+						23,
+						"currentshape"
 					]
 				]
 				]
@@ -21669,6 +21826,25 @@ false,false,783455275266108,false
 				]
 				]
 			]
+,			[
+				3,
+				cr.plugins_.Function.prototype.acts.CallFunction,
+				null,
+				2169955506128812,
+				false
+				,[
+				[
+					1,
+					[
+						2,
+						"checkBelowGhost"
+					]
+				]
+,				[
+					13,
+				]
+				]
+			]
 			]
 		]
 ,		[
@@ -22199,6 +22375,69 @@ false,false,783455275266108,false
 				]
 			]
 ,			[
+				12,
+				cr.plugins_.Sprite.prototype.acts.Spawn,
+				null,
+				2296850159279886,
+				false
+				,[
+				[
+					4,
+					28
+				]
+,				[
+					5,
+					[
+						0,
+						0
+					]
+				]
+,				[
+					7,
+					[
+						0,
+						0
+					]
+				]
+				]
+			]
+,			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				6362495136830247,
+				false
+				,[
+				[
+					11,
+					"currentshape"
+				]
+,				[
+					7,
+					[
+						19,
+						cr.system_object.prototype.exps.round
+						,[
+[
+							19,
+							cr.system_object.prototype.exps.random
+							,[
+[
+								0,
+								0
+							]
+,[
+								0,
+								6
+							]
+							]
+						]
+						]
+					]
+				]
+				]
+			]
+,			[
 				1,
 				cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
 				null,
@@ -22209,7 +22448,23 @@ false,false,783455275266108,false
 					0,
 					[
 						23,
-						"rand"
+						"currentshape"
+					]
+				]
+				]
+			]
+,			[
+				28,
+				cr.plugins_.Sprite.prototype.acts.SetAnimFrame,
+				null,
+				5538682050335459,
+				false
+				,[
+				[
+					0,
+					[
+						23,
+						"currentshape"
 					]
 				]
 				]
@@ -22978,6 +23233,13 @@ false,false,783455275266108,false
 				cr.plugins_.Sprite.prototype.acts.Destroy,
 				null,
 				405253109477717,
+				false
+			]
+,			[
+				28,
+				cr.plugins_.Sprite.prototype.acts.Destroy,
+				null,
+				1399619890817604,
 				false
 			]
 ,			[
@@ -26212,6 +26474,1558 @@ false,false,783455275266108,false
 			]
 			]
 		]
+,		[
+			0,
+			null,
+			false,
+			null,
+			9782628456740459,
+			[
+			[
+				-1,
+				cr.system_object.prototype.cnds.EveryTick,
+				null,
+				0,
+				false,
+				false,
+				false,
+				70469209575651,
+				false
+			]
+			],
+			[
+			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				8335123742976684,
+				false
+				,[
+				[
+					11,
+					"bp1"
+				]
+,				[
+					7,
+					[
+						0,
+						0
+					]
+				]
+				]
+			]
+,			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				458825419781314,
+				false
+				,[
+				[
+					11,
+					"bp2"
+				]
+,				[
+					7,
+					[
+						0,
+						0
+					]
+				]
+				]
+			]
+,			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				5317818314982189,
+				false
+				,[
+				[
+					11,
+					"bp3"
+				]
+,				[
+					7,
+					[
+						0,
+						0
+					]
+				]
+				]
+			]
+,			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				701740720325323,
+				false
+				,[
+				[
+					11,
+					"bp4"
+				]
+,				[
+					7,
+					[
+						0,
+						0
+					]
+				]
+				]
+			]
+,			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				2091452369901988,
+				false
+				,[
+				[
+					11,
+					"gap1"
+				]
+,				[
+					7,
+					[
+						5,
+						[
+							0,
+							10
+						]
+						,[
+							4,
+							[
+								7,
+								[
+									4,
+									[
+										20,
+										1,
+										cr.plugins_.Sprite.prototype.exps.ImagePointY,
+										false,
+										null
+										,[
+[
+											0,
+											1
+										]
+										]
+									]
+									,[
+										0,
+										25
+									]
+								]
+								,[
+									0,
+									50
+								]
+							]
+							,[
+								0,
+								1
+							]
+						]
+					]
+				]
+				]
+			]
+,			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				3918438911730288,
+				false
+				,[
+				[
+					11,
+					"gap2"
+				]
+,				[
+					7,
+					[
+						5,
+						[
+							0,
+							10
+						]
+						,[
+							4,
+							[
+								19,
+								cr.system_object.prototype.exps.round
+								,[
+[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												2
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								]
+							]
+							,[
+								0,
+								1
+							]
+						]
+					]
+				]
+				]
+			]
+,			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				6227890964053816,
+				false
+				,[
+				[
+					11,
+					"gap3"
+				]
+,				[
+					7,
+					[
+						5,
+						[
+							0,
+							10
+						]
+						,[
+							4,
+							[
+								7,
+								[
+									4,
+									[
+										20,
+										1,
+										cr.plugins_.Sprite.prototype.exps.ImagePointY,
+										false,
+										null
+										,[
+[
+											0,
+											3
+										]
+										]
+									]
+									,[
+										0,
+										25
+									]
+								]
+								,[
+									0,
+									50
+								]
+							]
+							,[
+								0,
+								1
+							]
+						]
+					]
+				]
+				]
+			]
+,			[
+				-1,
+				cr.system_object.prototype.acts.SetVar,
+				null,
+				5198227334317421,
+				false
+				,[
+				[
+					11,
+					"gap4"
+				]
+,				[
+					7,
+					[
+						5,
+						[
+							0,
+							10
+						]
+						,[
+							4,
+							[
+								7,
+								[
+									4,
+									[
+										20,
+										1,
+										cr.plugins_.Sprite.prototype.exps.ImagePointY,
+										false,
+										null
+										,[
+[
+											0,
+											4
+										]
+										]
+									]
+									,[
+										0,
+										25
+									]
+								]
+								,[
+									0,
+									50
+								]
+							]
+							,[
+								0,
+								1
+							]
+						]
+					]
+				]
+				]
+			]
+			]
+			,[
+			[
+				0,
+				null,
+				false,
+				null,
+				178169087941557,
+				[
+				[
+					-1,
+					cr.system_object.prototype.cnds.For,
+					null,
+					0,
+					true,
+					false,
+					false,
+					7152871309943198,
+					false
+					,[
+					[
+						1,
+						[
+							2,
+							"lp"
+						]
+					]
+,					[
+						0,
+						[
+							4,
+							[
+								19,
+								cr.system_object.prototype.exps.round
+								,[
+[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												1
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								]
+							]
+							,[
+								0,
+								1
+							]
+						]
+					]
+,					[
+						0,
+						[
+							0,
+							10
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.cnds.Compare,
+					null,
+					0,
+					false,
+					false,
+					false,
+					3381527944463027,
+					false
+					,[
+					[
+						7,
+						[
+							20,
+							8,
+							cr.plugins_.Arr.prototype.exps.At,
+							false,
+							null
+							,[
+[
+								19,
+								cr.system_object.prototype.exps.loopindex
+							]
+,[
+								5,
+								[
+									19,
+									cr.system_object.prototype.exps.round
+									,[
+[
+										7,
+										[
+											4,
+											[
+												20,
+												1,
+												cr.plugins_.Sprite.prototype.exps.ImagePointX,
+												false,
+												null
+												,[
+[
+													0,
+													1
+												]
+												]
+											]
+											,[
+												0,
+												25
+											]
+										]
+										,[
+											0,
+											50
+										]
+									]
+									]
+								]
+								,[
+									0,
+									1
+								]
+							]
+							]
+						]
+					]
+,					[
+						8,
+						0
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.cnds.CompareVar,
+					null,
+					0,
+					false,
+					false,
+					false,
+					963870695420303,
+					false
+					,[
+					[
+						11,
+						"bp1"
+					]
+,					[
+						8,
+						0
+					]
+,					[
+						7,
+						[
+							0,
+							0
+						]
+					]
+					]
+				]
+				],
+				[
+				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					5674000968652566,
+					false
+					,[
+					[
+						11,
+						"bp1"
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					7616290816482892,
+					false
+					,[
+					[
+						11,
+						"gap1"
+					]
+,					[
+						7,
+						[
+							5,
+							[
+								5,
+								[
+									19,
+									cr.system_object.prototype.exps.loopindex
+								]
+								,[
+									0,
+									1
+								]
+							]
+							,[
+								4,
+								[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												1
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								,[
+									0,
+									1
+								]
+							]
+						]
+					]
+					]
+				]
+				]
+			]
+,			[
+				0,
+				null,
+				false,
+				null,
+				7366870972286628,
+				[
+				[
+					-1,
+					cr.system_object.prototype.cnds.For,
+					null,
+					0,
+					true,
+					false,
+					false,
+					1981853157372415,
+					false
+					,[
+					[
+						1,
+						[
+							2,
+							"lp"
+						]
+					]
+,					[
+						0,
+						[
+							4,
+							[
+								19,
+								cr.system_object.prototype.exps.round
+								,[
+[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												2
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								]
+							]
+							,[
+								0,
+								1
+							]
+						]
+					]
+,					[
+						0,
+						[
+							0,
+							10
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.cnds.Compare,
+					null,
+					0,
+					false,
+					false,
+					false,
+					1541440229858305,
+					false
+					,[
+					[
+						7,
+						[
+							20,
+							8,
+							cr.plugins_.Arr.prototype.exps.At,
+							false,
+							null
+							,[
+[
+								19,
+								cr.system_object.prototype.exps.loopindex
+							]
+,[
+								5,
+								[
+									19,
+									cr.system_object.prototype.exps.round
+									,[
+[
+										7,
+										[
+											4,
+											[
+												20,
+												1,
+												cr.plugins_.Sprite.prototype.exps.ImagePointX,
+												false,
+												null
+												,[
+[
+													0,
+													2
+												]
+												]
+											]
+											,[
+												0,
+												25
+											]
+										]
+										,[
+											0,
+											50
+										]
+									]
+									]
+								]
+								,[
+									0,
+									1
+								]
+							]
+							]
+						]
+					]
+,					[
+						8,
+						0
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.cnds.CompareVar,
+					null,
+					0,
+					false,
+					false,
+					false,
+					8226681861241669,
+					false
+					,[
+					[
+						11,
+						"bp2"
+					]
+,					[
+						8,
+						0
+					]
+,					[
+						7,
+						[
+							0,
+							0
+						]
+					]
+					]
+				]
+				],
+				[
+				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					1306849709921762,
+					false
+					,[
+					[
+						11,
+						"bp2"
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					1703562760026746,
+					false
+					,[
+					[
+						11,
+						"gap2"
+					]
+,					[
+						7,
+						[
+							5,
+							[
+								5,
+								[
+									19,
+									cr.system_object.prototype.exps.loopindex
+								]
+								,[
+									0,
+									1
+								]
+							]
+							,[
+								4,
+								[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												2
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								,[
+									0,
+									1
+								]
+							]
+						]
+					]
+					]
+				]
+				]
+			]
+,			[
+				0,
+				null,
+				false,
+				null,
+				1713258554242658,
+				[
+				[
+					-1,
+					cr.system_object.prototype.cnds.For,
+					null,
+					0,
+					true,
+					false,
+					false,
+					1568151950720127,
+					false
+					,[
+					[
+						1,
+						[
+							2,
+							"lp"
+						]
+					]
+,					[
+						0,
+						[
+							4,
+							[
+								19,
+								cr.system_object.prototype.exps.round
+								,[
+[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												3
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								]
+							]
+							,[
+								0,
+								1
+							]
+						]
+					]
+,					[
+						0,
+						[
+							0,
+							10
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.cnds.Compare,
+					null,
+					0,
+					false,
+					false,
+					false,
+					7370321546599507,
+					false
+					,[
+					[
+						7,
+						[
+							20,
+							8,
+							cr.plugins_.Arr.prototype.exps.At,
+							false,
+							null
+							,[
+[
+								19,
+								cr.system_object.prototype.exps.loopindex
+							]
+,[
+								5,
+								[
+									19,
+									cr.system_object.prototype.exps.round
+									,[
+[
+										7,
+										[
+											4,
+											[
+												20,
+												1,
+												cr.plugins_.Sprite.prototype.exps.ImagePointX,
+												false,
+												null
+												,[
+[
+													0,
+													3
+												]
+												]
+											]
+											,[
+												0,
+												25
+											]
+										]
+										,[
+											0,
+											50
+										]
+									]
+									]
+								]
+								,[
+									0,
+									1
+								]
+							]
+							]
+						]
+					]
+,					[
+						8,
+						0
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.cnds.CompareVar,
+					null,
+					0,
+					false,
+					false,
+					false,
+					9583709441557891,
+					false
+					,[
+					[
+						11,
+						"bp3"
+					]
+,					[
+						8,
+						0
+					]
+,					[
+						7,
+						[
+							0,
+							0
+						]
+					]
+					]
+				]
+				],
+				[
+				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					9398763511099536,
+					false
+					,[
+					[
+						11,
+						"bp3"
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					8389404848395114,
+					false
+					,[
+					[
+						11,
+						"gap3"
+					]
+,					[
+						7,
+						[
+							5,
+							[
+								5,
+								[
+									19,
+									cr.system_object.prototype.exps.loopindex
+								]
+								,[
+									0,
+									1
+								]
+							]
+							,[
+								4,
+								[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												3
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								,[
+									0,
+									1
+								]
+							]
+						]
+					]
+					]
+				]
+				]
+			]
+,			[
+				0,
+				null,
+				false,
+				null,
+				5859642225367022,
+				[
+				[
+					-1,
+					cr.system_object.prototype.cnds.For,
+					null,
+					0,
+					true,
+					false,
+					false,
+					9919995872907818,
+					false
+					,[
+					[
+						1,
+						[
+							2,
+							"lp"
+						]
+					]
+,					[
+						0,
+						[
+							4,
+							[
+								19,
+								cr.system_object.prototype.exps.round
+								,[
+[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												4
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								]
+							]
+							,[
+								0,
+								1
+							]
+						]
+					]
+,					[
+						0,
+						[
+							0,
+							10
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.cnds.Compare,
+					null,
+					0,
+					false,
+					false,
+					false,
+					819052092957785,
+					false
+					,[
+					[
+						7,
+						[
+							20,
+							8,
+							cr.plugins_.Arr.prototype.exps.At,
+							false,
+							null
+							,[
+[
+								19,
+								cr.system_object.prototype.exps.loopindex
+							]
+,[
+								5,
+								[
+									19,
+									cr.system_object.prototype.exps.round
+									,[
+[
+										7,
+										[
+											4,
+											[
+												20,
+												1,
+												cr.plugins_.Sprite.prototype.exps.ImagePointX,
+												false,
+												null
+												,[
+[
+													0,
+													4
+												]
+												]
+											]
+											,[
+												0,
+												25
+											]
+										]
+										,[
+											0,
+											50
+										]
+									]
+									]
+								]
+								,[
+									0,
+									1
+								]
+							]
+							]
+						]
+					]
+,					[
+						8,
+						0
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.cnds.CompareVar,
+					null,
+					0,
+					false,
+					false,
+					false,
+					2542218921138587,
+					false
+					,[
+					[
+						11,
+						"bp4"
+					]
+,					[
+						8,
+						0
+					]
+,					[
+						7,
+						[
+							0,
+							0
+						]
+					]
+					]
+				]
+				],
+				[
+				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					8864451132203528,
+					false
+					,[
+					[
+						11,
+						"bp4"
+					]
+,					[
+						7,
+						[
+							0,
+							1
+						]
+					]
+					]
+				]
+,				[
+					-1,
+					cr.system_object.prototype.acts.SetVar,
+					null,
+					1185145960660049,
+					false
+					,[
+					[
+						11,
+						"gap4"
+					]
+,					[
+						7,
+						[
+							5,
+							[
+								5,
+								[
+									19,
+									cr.system_object.prototype.exps.loopindex
+								]
+								,[
+									0,
+									1
+								]
+							]
+							,[
+								4,
+								[
+									7,
+									[
+										4,
+										[
+											20,
+											1,
+											cr.plugins_.Sprite.prototype.exps.ImagePointY,
+											false,
+											null
+											,[
+[
+												0,
+												4
+											]
+											]
+										]
+										,[
+											0,
+											25
+										]
+									]
+									,[
+										0,
+										50
+									]
+								]
+								,[
+									0,
+									1
+								]
+							]
+						]
+					]
+					]
+				]
+				]
+			]
+,			[
+				0,
+				null,
+				false,
+				null,
+				2213356573456941,
+				[
+				[
+					-1,
+					cr.system_object.prototype.cnds.EveryTick,
+					null,
+					0,
+					false,
+					false,
+					false,
+					8560712277549741,
+					false
+				]
+				],
+				[
+				[
+					28,
+					cr.plugins_.Sprite.prototype.acts.SetX,
+					null,
+					2658015552030564,
+					false
+					,[
+					[
+						0,
+						[
+							20,
+							1,
+							cr.plugins_.Sprite.prototype.exps.X,
+							false,
+							null
+						]
+					]
+					]
+				]
+,				[
+					28,
+					cr.plugins_.Sprite.prototype.acts.SetY,
+					null,
+					6283399480839705,
+					false
+					,[
+					[
+						0,
+						[
+							4,
+							[
+								20,
+								1,
+								cr.plugins_.Sprite.prototype.exps.Y,
+								false,
+								null
+							]
+							,[
+								6,
+								[
+									19,
+									cr.system_object.prototype.exps.min
+									,[
+[
+										23,
+										"gap1"
+									]
+,[
+										23,
+										"gap2"
+									]
+,[
+										23,
+										"gap3"
+									]
+,[
+										23,
+										"gap4"
+									]
+									]
+								]
+								,[
+									0,
+									50
+								]
+							]
+						]
+					]
+					]
+				]
+,				[
+					28,
+					cr.plugins_.Sprite.prototype.acts.SetAngle,
+					null,
+					246464848503095,
+					false
+					,[
+					[
+						0,
+						[
+							20,
+							1,
+							cr.plugins_.Sprite.prototype.exps.Angle,
+							false,
+							null
+						]
+					]
+					]
+				]
+				]
+			]
+			]
+		]
+,		[
+			0,
+			null,
+			false,
+			null,
+			1501065048093448,
+			[
+			],
+			[
+			]
+		]
 		]
 	]
 ,	[
@@ -26431,7 +28245,7 @@ false,false,783455275266108,false
 	false,
 	0,
 	1,
-	31,
+	30,
 	false,
 	true,
 	1,
