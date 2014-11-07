@@ -13640,6 +13640,387 @@ cr.plugins_.Arr = function(runtime)
 }());
 ;
 ;
+cr.plugins_.Facebook = function(runtime)
+{
+	this.runtime = runtime;
+};
+(function ()
+{
+	var pluginProto = cr.plugins_.Facebook.prototype;
+	pluginProto.Type = function(plugin)
+	{
+		this.plugin = plugin;
+		this.runtime = plugin.runtime;
+	};
+	var typeProto = pluginProto.Type.prototype;
+	var fbAppID = "";
+	var fbAppSecret = "";
+	var fbReady = false;
+	var fbLoggedIn = false;
+	var fbUserID = "";
+	var fbFullName = "";
+	var fbFirstName = "";
+	var fbLastName = "";
+	var fbRuntime = null;
+	var fbInst = null;
+	var fbScore = 0;
+	var fbHiscoreName = "";
+	var fbHiscoreUserID = 0;
+	var fbRank = 0;
+	var fbCanPublishStream = false;
+	var fbCanPublishAction = false;
+	var fbPerms = "";
+	var triggeredReady = false;
+	function onFBLogin()
+	{
+		if (!fbLoggedIn)
+		{
+			fbLoggedIn = true;
+			fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnLogIn, fbInst);
+			FB.api('/me', function(response) {
+							fbFullName = response["name"];
+							fbFirstName = response["first_name"];
+							fbLastName = response["last_name"];
+							fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnNameAvailable, fbInst);
+						});
+		}
+	};
+	typeProto.onCreate = function()
+	{
+	};
+	pluginProto.Instance = function(type)
+	{
+		this.type = type;
+		this.runtime = type.runtime;
+	};
+	var instanceProto = pluginProto.Instance.prototype;
+	instanceProto.onCreate = function()
+	{
+		if (this.runtime.isDomFree)
+		{
+			cr.logexport("[Construct 2] Facebook plugin not supported on this platform - the object will not be created");
+			return;
+		}
+		this.runtime.tickMe(this);
+		fbAppID = this.properties[0];
+		fbAppSecret = this.properties[1];
+		fbRuntime = this.runtime;
+		fbInst = this;
+		window.fbAsyncInit = function() {
+			var channelfile = '//' + location.hostname;
+			var pname = location.pathname;
+			if (pname.substr(pname.length - 1) !== '/')
+				pname = pname.substr(0, pname.lastIndexOf('/') + 1);
+			FB.init({
+			  "appId"      : fbAppID,
+			  "channelURL" : '//' + location.hostname + pname + 'channel.html',
+			  "status"     : true,
+			  "cookie"     : true,
+			  "oauth"      : true,
+			  "xfbml"      : false
+			});
+			fbReady = true;
+			FB.Event.subscribe('auth.login', function(response) {
+				fbUserID = response["authResponse"]["userID"];
+;
+				onFBLogin();
+			});
+			FB.Event.subscribe('auth.logout', function(response) {
+				if (fbLoggedIn)
+				{
+					fbLoggedIn = false;
+					fbFullName = "";
+					fbFirstName = "";
+					fbLastName = "";
+					fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnLogOut, fbInst);
+				}
+			});
+			FB.getLoginStatus(function(response) {
+				if (response["authResponse"])
+				{
+					fbUserID = response["authResponse"]["userID"];
+;
+					onFBLogin();
+				}
+			});
+			if (!triggeredReady)
+			{
+				triggeredReady = true;
+				fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnReady, fbInst);
+			}
+		};
+		if (fbAppID.length)
+		{
+			(function(d){
+				var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+				js = d.createElement('script'); js.id = id; js.async = true;
+				js.src = "//connect.facebook.net/en_US/all.js";
+				d.getElementsByTagName('head')[0].appendChild(js);
+			}(document));
+		}
+		else
+;
+	};
+	instanceProto.tick = function ()
+	{
+		if (triggeredReady)
+			return;
+		if (fbReady)
+		{
+			triggeredReady = true;
+			fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnReady, fbInst);
+		}
+	};
+	instanceProto.onLayoutChange = function ()
+	{
+		if (this.runtime.isDomFree)
+			return;
+		if (fbLoggedIn)
+			fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnLogIn, fbInst);
+		if (fbFullName.length)
+			fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnNameAvailable, fbInst);
+	};
+	function Cnds() {};
+	Cnds.prototype.IsReady = function ()
+	{
+		return fbReady;
+	};
+	Cnds.prototype.OnReady = function ()
+	{
+		return true;
+	};
+	Cnds.prototype.IsLoggedIn = function ()
+	{
+		return fbLoggedIn;
+	};
+	Cnds.prototype.OnLogIn = function ()
+	{
+		return true;
+	};
+	Cnds.prototype.OnLogOut = function ()
+	{
+		return true;
+	};
+	Cnds.prototype.OnNameAvailable = function ()
+	{
+		return true;
+	};
+	Cnds.prototype.OnUserTopScoreAvailable = function ()
+	{
+		return true;
+	};
+	Cnds.prototype.OnHiscore = function ()
+	{
+		return true;
+	};
+	Cnds.prototype.OnScoreSubmitted = function ()
+	{
+		return true;
+	};
+	pluginProto.cnds = new Cnds();
+	function Acts() {};
+	Acts.prototype.LogIn = function (perm_stream, perm_action)
+	{
+		if (this.runtime.isDomFree || !fbReady)
+			return;
+		fbCanPublishStream = (perm_stream === 1);
+		fbCanPublishAction = (perm_action === 1);
+		var perms = [];
+		if (fbCanPublishStream)
+			perms.push("publish_stream");
+		if (fbCanPublishAction)
+			perms.push("publish_actions");
+		var newperms = perms.join();
+			fbPerms = newperms;
+			FB.login(function(response) {
+					if (response["authResponse"])
+						onFBLogin();
+				}, {scope: fbPerms});
+	};
+	Acts.prototype.LogOut = function ()
+	{
+		if (this.runtime.isDomFree)
+			return;
+		if (fbLoggedIn)
+			FB.logout(function(response) {});
+	};
+	Acts.prototype.PromptWallPost = function ()
+	{
+		if (this.runtime.isDomFree || !fbLoggedIn)
+			return;
+		FB.ui({ "method": "feed" }, function(response) {
+				if (!response || response.error)
+					  console.error(response);
+			});
+	};
+	Acts.prototype.PromptToShareApp = function (name_, caption_, description_, picture_)
+	{
+		if (this.runtime.isDomFree || !fbLoggedIn)
+			return;
+		FB.ui({
+				"method": "feed",
+				"link": "http://apps.facebook.com/" + fbAppID + "/",
+				"picture": picture_,
+				"name": name_,
+				"caption": caption_,
+				"description": description_
+			  }, function(response) {
+				  if (!response || response.error)
+						  console.error(response);
+			});
+	};
+	Acts.prototype.PromptToShareLink = function (url_, name_, caption_, description_, picture_)
+	{
+		if (this.runtime.isDomFree || !fbLoggedIn)
+			return;
+		FB.ui({
+				"method": "feed",
+				"link": url_,
+				"picture": picture_,
+				"name": name_,
+				"caption": caption_,
+				"description": description_
+			  }, function(response) {
+					if (!response || response.error)
+						console.error(response);
+			});
+	};
+	Acts.prototype.PublishToWall = function (message_)
+	{
+		if (this.runtime.isDomFree || !fbLoggedIn)
+			return;
+		var publish = {
+			"method": 'stream.publish',
+			"message": message_
+		};
+		FB.api('/me/feed', 'POST', publish, function(response) {
+				if (!response || response.error)
+					console.error(response);
+			});
+	};
+	Acts.prototype.PublishLink = function (message_, url_, name_, caption_, description_, picture_)
+	{
+		if (this.runtime.isDomFree || !fbLoggedIn)
+			return;
+		var publish = {
+				"method": 'stream.publish',
+				"message": message_,
+				"link": url_,
+				"name": name_,
+				"caption": caption_,
+				"description": description_
+			};
+		if (picture_.length)
+			publish["picture"] = picture_;
+		FB.api('/me/feed', 'POST', publish, function(response) {
+				if (!response || response.error)
+					console.error(response);
+			});
+	};
+	Acts.prototype.PublishScore = function (score_)
+	{
+		if (this.runtime.isDomFree || !fbLoggedIn)
+			return;
+		FB.api('/' + fbUserID + '/scores', 'POST', { "score": Math.floor(score_), "access_token": fbAppID + "|" + fbAppSecret }, function(response) {
+			fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnScoreSubmitted, fbInst);
+			if (!response || response.error)
+				console.error(response);
+	   });
+	};
+	Acts.prototype.RequestUserHiscore = function ()
+	{
+		if (this.runtime.isDomFree || !fbLoggedIn)
+			return;
+		FB.api('/me/scores', 'GET', {}, function(response) {
+			fbScore = 0;
+			var arr = response["data"];
+			if (!arr)
+			{
+				console.error("Request for user hi-score failed: " + response);
+				return;
+			}
+			var i, len;
+			for (i = 0, len = arr.length; i < len; i++)
+			{
+				if (arr[i]["score"] > fbScore)
+					fbScore = arr[i]["score"];
+			}
+			fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnUserTopScoreAvailable, fbInst);
+			if (!response || response.error) {
+			  console.error(response);
+		    } else {
+;
+		    }
+		});
+	};
+	Acts.prototype.RequestHiscores = function (n)
+	{
+		if (this.runtime.isDomFree || !fbLoggedIn)
+			return;
+		FB.api('/' + fbAppID + '/scores', 'GET', {}, function(response) {
+			var arr = response["data"];
+			if (!arr)
+			{
+				console.error("Hi-scores request failed: " + response);
+				return;
+			}
+			arr.sort(function(a, b) {
+				return b["score"] - a["score"];
+			});
+			var i = 0, len = Math.min(arr.length, n);
+			for ( ; i < len; i++)
+			{
+				fbScore = arr[i]["score"];
+				fbHiscoreName = arr[i]["user"]["name"];
+				fbHiscoreUserID = arr[i]["user"]["id"];
+				fbRank = i + 1;
+				fbRuntime.trigger(cr.plugins_.Facebook.prototype.cnds.OnHiscore, fbInst);
+			}
+			if (!response || response.error) {
+			  console.error(response);
+		    } else {
+;
+		    }
+		});
+	};
+	pluginProto.acts = new Acts();
+	function Exps() {};
+	Exps.prototype.FullName = function (ret)
+	{
+		ret.set_string(fbFullName);
+	};
+	Exps.prototype.FirstName = function (ret)
+	{
+		ret.set_string(fbFirstName);
+	};
+	Exps.prototype.LastName = function (ret)
+	{
+		ret.set_string(fbLastName);
+	};
+	Exps.prototype.Score = function (ret)
+	{
+		ret.set_int(fbScore);
+	};
+	Exps.prototype.HiscoreName = function (ret)
+	{
+		ret.set_string(fbHiscoreName);
+	};
+	Exps.prototype.HiscoreUserID = function (ret)
+	{
+		ret.set_int(fbHiscoreUserID);
+	};
+	Exps.prototype.HiscoreRank = function (ret)
+	{
+		ret.set_int(fbRank);
+	};
+	Exps.prototype.UserID = function (ret)
+	{
+		ret.set_float(parseFloat(fbUserID));
+	};
+	pluginProto.exps = new Exps();
+}());
+;
+;
 cr.plugins_.Function = function(runtime)
 {
 	this.runtime = runtime;
@@ -18361,7 +18742,31 @@ cr.getProjectModel = function() { return [
 		false
 	]
 ,	[
+		cr.plugins_.Facebook,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false
+	]
+,	[
 		cr.plugins_.Function,
+		true,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false
+	]
+,	[
+		cr.plugins_.Mouse,
 		true,
 		false,
 		false,
@@ -18397,7 +18802,7 @@ cr.getProjectModel = function() { return [
 		true
 	]
 ,	[
-		cr.plugins_.Mouse,
+		cr.plugins_.Touch,
 		true,
 		false,
 		false,
@@ -18406,18 +18811,6 @@ cr.getProjectModel = function() { return [
 		false,
 		false,
 		false,
-		false
-	]
-,	[
-		cr.plugins_.Sprite,
-		false,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
-		true,
 		false
 	]
 ,	[
@@ -18433,19 +18826,19 @@ cr.getProjectModel = function() { return [
 		false
 	]
 ,	[
-		cr.plugins_.WebStorage,
+		cr.plugins_.Sprite,
+		false,
 		true,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
-		false,
+		true,
+		true,
+		true,
+		true,
+		true,
+		true,
 		false
 	]
 ,	[
-		cr.plugins_.Touch,
+		cr.plugins_.WebStorage,
 		true,
 		false,
 		false,
@@ -19121,6 +19514,41 @@ cr.getProjectModel = function() { return [
 		[],
 		null
 	]
+,	[
+		"t29",
+		cr.plugins_.Facebook,
+		false,
+		[],
+		0,
+		0,
+		null,
+		null,
+		[
+		],
+		false,
+		false,
+		7678007301095147,
+		[],
+		null
+		,["1507546109532003",""]
+	]
+,	[
+		"t30",
+		cr.plugins_.Text,
+		false,
+		[],
+		0,
+		0,
+		null,
+		null,
+		[
+		],
+		false,
+		false,
+		4761759526208294,
+		[],
+		null
+	]
 	],
 	[
 	],
@@ -19419,6 +19847,26 @@ cr.getProjectModel = function() { return [
 					"Default",
 					0,
 					1
+				]
+			]
+,			[
+				[193, 468, 0, 129, 48, 0, 0, 1, 0, 0, 0, 0, []],
+				30,
+				33,
+				[
+				],
+				[
+				],
+				[
+					"facebook",
+					0,
+					"bold 20pt Tahoma",
+					"rgb(0,102,255)",
+					0,
+					0,
+					0,
+					0,
+					0
 				]
 			]
 			],
@@ -28009,6 +28457,181 @@ false,false,1433162776674296,false
 			]
 			]
 		]
+,		[
+			0,
+			null,
+			false,
+			null,
+			8558605107103614,
+			[
+			[
+				29,
+				cr.plugins_.Facebook.prototype.cnds.IsReady,
+				null,
+				0,
+				false,
+				false,
+				false,
+				2668899896880298,
+				false
+			]
+,			[
+				-1,
+				cr.system_object.prototype.cnds.TriggerOnce,
+				null,
+				0,
+				false,
+				false,
+				false,
+				2328573992529949,
+				false
+			]
+			],
+			[
+			[
+				30,
+				cr.plugins_.Text.prototype.acts.SetText,
+				null,
+				6308019688235826,
+				false
+				,[
+				[
+					7,
+					[
+						2,
+						"fb ready"
+					]
+				]
+				]
+			]
+,			[
+				29,
+				cr.plugins_.Facebook.prototype.acts.LogIn,
+				null,
+				972278596382293,
+				false
+				,[
+				[
+					3,
+					1
+				]
+,				[
+					3,
+					1
+				]
+				]
+			]
+			]
+			,[
+			[
+				0,
+				null,
+				false,
+				null,
+				7129367201705017,
+				[
+				[
+					15,
+					cr.plugins_.Touch.prototype.cnds.OnTapGestureObject,
+					null,
+					1,
+					false,
+					false,
+					false,
+					6454714211692861,
+					false
+					,[
+					[
+						4,
+						30
+					]
+					]
+				]
+				],
+				[
+				]
+			]
+			]
+		]
+,		[
+			0,
+			null,
+			false,
+			null,
+			4563528499915285,
+			[
+			[
+				15,
+				cr.plugins_.Touch.prototype.cnds.OnTapGestureObject,
+				null,
+				1,
+				false,
+				false,
+				false,
+				3344192744136123,
+				false
+				,[
+				[
+					4,
+					30
+				]
+				]
+			]
+			],
+			[
+			[
+				29,
+				cr.plugins_.Facebook.prototype.acts.PromptToShareLink,
+				null,
+				4263524996101996,
+				false
+				,[
+				[
+					1,
+					[
+						2,
+						"http://www.bing.com"
+					]
+				]
+,				[
+					1,
+					[
+						10,
+						[
+							2,
+							"my score: "
+						]
+						,[
+							23,
+							"score"
+						]
+					]
+				]
+,				[
+					1,
+					[
+						2,
+						"a good wallpaper"
+					]
+				]
+,				[
+					1,
+					[
+						2,
+						"stupid description"
+					]
+				]
+,				[
+					1,
+					[
+						2,
+						""
+					]
+				]
+				]
+			]
+			]
+		]
 		]
 	]
 ,	[
@@ -28228,7 +28851,7 @@ false,false,1433162776674296,false
 	false,
 	0,
 	1,
-	30,
+	34,
 	false,
 	true,
 	1,
